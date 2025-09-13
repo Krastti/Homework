@@ -41,7 +41,7 @@ def lemniscate():
 # Инициализация контекстного меню
 root = Tk()
 root.title('Homework 3')
-center_window(root, 300, 150)
+center_window(root, 300, 115)
 
 btn_cardioid = Button(root, text='Кардиоида ', command=cardioid, width=15, height=2)
 btn_cardioid.pack(pady=5)
