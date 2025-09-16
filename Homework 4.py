@@ -13,6 +13,7 @@ def center_window(window, width, height):
 
     window.geometry(f"{width}x{height}+{x}+{y}")
 
+# Функция 1 -> Кардиоида
 def func_1():
     alpha = np.linspace(0, 2 * np.pi, 1000)
     r = 4 * np.cos(alpha)
@@ -22,6 +23,7 @@ def func_1():
 
     plt.show()
 
+# Функция 2 -> Прямая
 def func_2():
     alpha = np.array([np.pi / 3, 4 * np.pi / 3])
     r = np.linspace(0, 10, 100)
@@ -31,6 +33,7 @@ def func_2():
         ax.plot([t] * len(r), r, 'r', label='Функция 2')
     plt.show()
 
+# Функция 3 -> Кривая квадратного корня
 def func_3():
     x = np.arange(-100, 2, 0.01)
     y = np.sqrt(16 - 8 * x)
@@ -45,6 +48,7 @@ def func_3():
 
     plt.show()
 
+# Создание контекстного меню
 root = Tk()
 root.title('Homework 4')
 center_window(root, 300, 160)
