@@ -21,8 +21,6 @@ t = np.array([2, 3, 1])  # Вектор переноса
 s = 0.5  # Коэффициент масштабирования
 angle = math.radians(45)  # Угол поворота в радианах
 
-# Функции преобразований на основе математических формул
-
 # Масштабирование: P' = S · P
 def apply_scale(vertices, scale_factor):
     return vertices * scale_factor
@@ -79,7 +77,6 @@ ax.text(0, 0, 1.5, "Z", color='b')
 # Список для хранения линий куба
 lines = []
 
-
 # Функция для вычисления промежуточных преобразований
 def interpolate_transform(progress):
     # Интерполяция параметров преобразования
@@ -102,7 +99,6 @@ def init():
     lines.clear()
     return []
 
-
 # Функция обновления кадра анимации
 def update(frame):
     # Очистка предыдущих линий
@@ -121,17 +117,6 @@ def update(frame):
         line = ax.plot3D(*zip(intermediate_vertices[edge[0]], intermediate_vertices[edge[1]]),'red', linewidth=2)[0]
         lines.append(line)
 
-    # Обновление заголовка
-    stage = ""
-    if progress < 0.33:
-        stage = "Масштабирование"
-    elif progress < 0.66:
-        stage = "Поворот вокруг Z"
-    else:
-        stage = "Перенос"
-
-    ax.set_title(f'Преобразование 3D-модели\n{stage}\nПрогресс: {progress * 100:.1f}%')
-
     return lines
 
 
@@ -140,30 +125,3 @@ ani = animation.FuncAnimation(fig, update, frames=100, init_func=init, blit=Fals
 
 plt.tight_layout()
 plt.show()
-
-# Вывод результатов преобразования
-print("Координаты вершин после преобразований:")
-print("Порядок: Масштабирование → Поворот вокруг Z → Перенос")
-print(f"Параметры: масштаб = {s}, угол = {math.degrees(angle)}°, перенос = {t}")
-for i, vertex in enumerate(transformed_vertices):
-    print(f"Вершина {i + 1}: [{vertex[0]:.3f}, {vertex[1]:.3f}, {vertex[2]:.3f}]")
-
-# Демонстрация каждого преобразования по отдельности
-print("\n--- Демонстрация каждого преобразования по отдельности ---")
-
-# Только масштабирование
-scaled_only = apply_scale(vertices, s)
-print("\nТолько масштабирование:")
-for i, vertex in enumerate(scaled_only):
-    print(f"Вершина {i + 1}: [{vertex[0]:.3f}, {vertex[1]:.3f}, {vertex[2]:.3f}]")
-
-# Масштабирование + поворот
-scaled_rotated = apply_rotation_z(scaled_only, angle)
-print("\nМасштабирование + поворот:")
-for i, vertex in enumerate(scaled_rotated):
-    print(f"Вершина {i + 1}: [{vertex[0]:.3f}, {vertex[1]:.3f}, {vertex[2]:.3f}]")
-
-# Все преобразования (масштабирование + поворот + перенос)
-print("\nВсе преобразования (масштабирование + поворот + перенос):")
-for i, vertex in enumerate(transformed_vertices):
-    print(f"Вершина {i + 1}: [{vertex[0]:.3f}, {vertex[1]:.3f}, {vertex[2]:.3f}]")
