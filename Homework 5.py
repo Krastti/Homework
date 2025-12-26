@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 # Параметры системы
-NUM_PARTICLES = 10
+NUM_PARTICLES = 30
 TIME_STEP = 0.1
 GRAVITY = np.array([0, -0.1], dtype=float)
 particles = []
