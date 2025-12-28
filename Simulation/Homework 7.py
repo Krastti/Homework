@@ -42,12 +42,6 @@ try:
 except Exception as e:
     print(f"Произошла ошибка загрузки ракета: {e}")
 
-# Цвета
-SKY_BLUE = (135, 206, 235)
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-RED = (231, 76, 60)
-
 # Параметры игры
 PLAYER_X = WIDTH // 2
 PLAYER_Y = HEIGHT - 40
@@ -140,7 +134,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:  # ЛКМ
+            if event.button == 1:
                 if game_active and reload_counter <= 0:
                     bullets.append(create_bullet(PLAYER_X, PLAYER_Y - 10, event.pos[0], event.pos[1]))
                     reload_counter = RELOAD_TIME
@@ -185,8 +179,6 @@ while running:
     # Фон
     if background_image:
         screen.blit(background_image, (0, 0))
-    else:
-        screen.fill(SKY_BLUE)
 
     # Отрисовка объектов
     for plane in planes:
