@@ -84,3 +84,11 @@ $$
 Пример работы программы: 
 
 ![Запись 2025-10-02 011546](https://github.com/user-attachments/assets/5fb19e45-cf27-40a3-88ed-0f5cd3aa86f7)
+
+### [Домашняя работа 7](https://github.com/Krastti/Homework/blob/main/Simulation/Homework%207.py)
+Простая 2D-игра на Python с использованием библиотеки Pygame. Игрок управляет пушкой, которая стреляет по самолётам, появляющимся на экране.
+
+#### Пример работы кода 
+
+![Запись 2025-12-28 190604](https://github.com/user-attachments/assets/0127ba4e-8167-4753-b3f5-94daaf587da3)
+
